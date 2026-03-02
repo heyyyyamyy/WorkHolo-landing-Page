@@ -80,6 +80,37 @@ const resourcesData = [
   ]
 ];
 
+const bpoServicesData = {
+  outbound: [
+    { title: 'Customer Retention', path: '/bpo/customer-retention' },
+    { title: 'Outbound Sales', path: '/bpo/outbound-sales' },
+    { title: 'Lead Generation', path: '/bpo/lead-generation' },
+  ],
+  inbound: [
+    { title: 'Customer Service', path: '/bpo/customer-service' },
+    { title: 'Technical Support', path: '/bpo/technical-support' },
+    { title: 'Payment Processing', path: '/bpo/payment-processing' },
+  ],
+  other1: [
+    { title: 'Accounting and Collections', path: '/bpo/accounting-collections' },
+    { title: 'Inbound Sales', path: '/bpo/inbound-sales' },
+    { title: 'Facility and Procurement', path: '/bpo/facility-procurement' },
+  ],
+  other2: [
+    { title: 'Direct Response Marketing', path: '/bpo/direct-response-marketing' },
+    { title: 'Back Office Processing', path: '/bpo/back-office-processing' },
+    { title: 'Claims Processing', path: '/bpo/claims-processing' },
+  ],
+  industries: [
+    { title: 'Healthcare & Life Sciences', path: '/bpo/industries/healthcare' },
+    { title: 'Banking & Financial Services', path: '/bpo/industries/finance' },
+    { title: 'Retail & E-commerce', path: '/bpo/industries/retail' },
+    { title: 'Technology & Telecom', path: '/bpo/industries/technology' },
+    { title: 'Travel & Hospitality', path: '/bpo/industries/travel' },
+    { title: 'Manufacturing & Logistics', path: '/bpo/industries/manufacturing' },
+  ]
+};
+
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -301,6 +332,77 @@ export default function Navbar() {
                 )}
               </div>
 
+              {/* BPO Services Dropdown */}
+              <div 
+                className="h-full flex items-center"
+                onMouseEnter={() => handleMouseEnter('bpo')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`text-sm font-medium flex items-center gap-1 h-full ${activeDropdown === 'bpo' ? 'text-primary' : 'hover:text-primary'}`}>
+                  BPO Services <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'bpo' ? 'rotate-180' : ''}`} />
+                </button>
+                {activeDropdown === 'bpo' && (
+                  <div className="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 flex justify-center">
+                    <div className="max-w-7xl w-full flex flex-col mx-auto">
+                      <div className="flex">
+                        <div className="flex-1 p-8 grid grid-cols-4 gap-8">
+                          <div>
+                            <h4 className="text-sm font-bold text-primary-dark mb-6">Outbound Services</h4>
+                            <ul className="space-y-4">
+                              {bpoServicesData.outbound.map(item => (
+                                <li key={item.title}>
+                                  <Link to={item.path} className="block text-gray-700 hover:text-primary">{item.title}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-primary-dark mb-6">Inbound Services</h4>
+                            <ul className="space-y-4">
+                              {bpoServicesData.inbound.map(item => (
+                                <li key={item.title}>
+                                  <Link to={item.path} className="block text-gray-700 hover:text-primary">{item.title}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-transparent mb-6 select-none">Other Services</h4>
+                            <ul className="space-y-4">
+                              {bpoServicesData.other1.map(item => (
+                                <li key={item.title}>
+                                  <Link to={item.path} className="block text-gray-700 hover:text-primary">{item.title}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-transparent mb-6 select-none">Other Services</h4>
+                            <ul className="space-y-4">
+                              {bpoServicesData.other2.map(item => (
+                                <li key={item.title}>
+                                  <Link to={item.path} className="block text-gray-700 hover:text-primary">{item.title}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="w-80 bg-gray-50 p-8 border-l border-gray-100 flex flex-col">
+                          <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Industries</h4>
+                          <ul className="space-y-4">
+                            {bpoServicesData.industries.map(item => (
+                              <li key={item.title}>
+                                <Link to={item.path} className="block text-gray-700 hover:text-primary">{item.title}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <Link to="/enterprise" className="text-sm font-medium hover:text-primary h-full flex items-center">
                 Enterprise
               </Link>
@@ -437,6 +539,39 @@ export default function Navbar() {
                     <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
                   ))}
                   <Link to="/solutions" className="block text-primary font-medium mt-4" onClick={() => setMobileMenuOpen(false)}>See all solutions →</Link>
+                </div>
+              )}
+            </div>
+
+            {/* BPO Services Mobile */}
+            <div>
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'bpo-mobile' ? null : 'bpo-mobile')}
+                className="flex items-center justify-between w-full text-lg font-bold"
+              >
+                BPO Services <ChevronDown className={`w-5 h-5 transition-transform ${activeDropdown === 'bpo-mobile' ? 'rotate-180' : ''}`} />
+              </button>
+              {activeDropdown === 'bpo-mobile' && (
+                <div className="mt-4 pl-4 space-y-4">
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider">Outbound Services</div>
+                  {bpoServicesData.outbound.map(item => (
+                    <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
+                  ))}
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider mt-6">Inbound Services</div>
+                  {bpoServicesData.inbound.map(item => (
+                    <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
+                  ))}
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider mt-6">More Services</div>
+                  {bpoServicesData.other1.map(item => (
+                    <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
+                  ))}
+                  {bpoServicesData.other2.map(item => (
+                    <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
+                  ))}
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider mt-6">Industries</div>
+                  {bpoServicesData.industries.map(item => (
+                    <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
+                  ))}
                 </div>
               )}
             </div>
