@@ -1,55 +1,86 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, PlayCircle } from 'lucide-react';
+import HeroBackground from '../components/HeroBackground';
+import { motion } from 'motion/react';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
-          WorkHolo is your team's<br />central <span className="text-primary">workspace</span>.
-        </h1>
-        <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-          Experience real-time messaging, seamless file sharing, and intelligent collaboration in one unified, cloud-based platform.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <Link 
-            to="/signup" 
-            className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-md hover:bg-primary-dark transition-colors uppercase tracking-wide"
-          >
-            Get started
-          </Link>
-          <Link 
-            to="/pricing" 
-            className="w-full sm:w-auto px-8 py-4 border border-primary text-primary font-bold rounded-md hover:bg-primary-bg transition-colors flex items-center justify-center gap-2 uppercase tracking-wide"
-          >
-            Find your subscription <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
+      <section className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <HeroBackground />
         
-        <div className="mb-16">
-          <p className="text-sm text-gray-500 font-medium mb-6 uppercase tracking-wider">Trusted by top teams</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale">
-            {/* Placeholder logos */}
-            <div className="text-xl font-bold">GM</div>
-            <div className="text-xl font-bold">OpenAI</div>
-            <div className="text-xl font-bold">Target</div>
-            <div className="text-xl font-bold">Paramount</div>
-            <div className="text-xl font-bold">stripe</div>
-            <div className="text-xl font-bold">IBM</div>
-          </div>
-        </div>
+        <div className="relative z-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6"
+          >
+            WorkHolo is your team's<br />central <span className="text-primary">workspace</span>.
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto"
+          >
+            Experience real-time messaging, seamless file sharing, and intelligent collaboration in one unified, cloud-based platform.
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          >
+            <Link 
+              to="/signup" 
+              className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-md hover:bg-primary-dark transition-colors uppercase tracking-wide"
+            >
+              Get started
+            </Link>
+            <Link 
+              to="/pricing" 
+              className="w-full sm:w-auto px-8 py-4 border border-primary text-primary font-bold rounded-md hover:bg-primary-bg transition-colors flex items-center justify-center gap-2 uppercase tracking-wide"
+            >
+              Find your subscription <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="mb-16"
+          >
+            <p className="text-sm text-gray-500 font-medium mb-6 uppercase tracking-wider">Trusted by top teams</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale">
+              {/* Placeholder logos */}
+              <div className="text-xl font-bold">GM</div>
+              <div className="text-xl font-bold">OpenAI</div>
+              <div className="text-xl font-bold">Target</div>
+              <div className="text-xl font-bold">Paramount</div>
+              <div className="text-xl font-bold">stripe</div>
+              <div className="text-xl font-bold">IBM</div>
+            </div>
+          </motion.div>
 
-        <div className="relative max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-200">
-          <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium flex items-center gap-1 border border-gray-200 shadow-sm">
-            <PlayCircle className="w-3 h-3 text-green-500" /> Download this video
-          </div>
-          <img 
-            src="https://picsum.photos/seed/dashboard/1200/800" 
-            alt="Workholo App Interface" 
-            className="w-full h-auto object-cover"
-            referrerPolicy="no-referrer"
-          />
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="relative max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-200"
+          >
+            <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium flex items-center gap-1 border border-gray-200 shadow-sm">
+              <PlayCircle className="w-3 h-3 text-green-500" /> Download this video
+            </div>
+            <img 
+              src="https://picsum.photos/seed/dashboard/1200/800" 
+              alt="Workholo App Interface" 
+              className="w-full h-auto object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
         </div>
       </section>
 
