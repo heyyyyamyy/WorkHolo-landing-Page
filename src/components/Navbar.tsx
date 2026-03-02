@@ -3,37 +3,40 @@ import { Search, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const featuresData = {
-  collaboration: [
-    { title: 'Channels', desc: 'Organise teams and work', path: '/features/channels' },
-    { title: 'Workholo Connect', desc: 'Work with external partners', path: '/features/connect' },
-    { title: 'Messaging', desc: 'Chat with your team', path: '/features/messaging' },
-    { title: 'Huddles', desc: 'Meet using audio and video', path: '/features/huddles' },
-    { title: 'Clips', desc: 'Record and share updates', path: '/features/clips' },
+  communication: [
+    { title: 'Team Channels', desc: 'Organized department channels', path: '/features/channels' },
+    { title: 'Direct Messaging', desc: '1-on-1 private chat', path: '/features/messaging' },
+    { title: 'Real-Time Messaging', desc: 'Instant team communication', path: '/features/real-time' },
+    { title: 'Message History', desc: 'Searchable past conversations', path: '/features/history' },
+    { title: '@Mentions', desc: 'Instant team notifications', path: '/features/mentions' },
   ],
-  crm: [
-    { title: 'Salesforce in Workholo', desc: 'Bring Salesforce into the flow of work', path: '/features/salesforce' },
+  media: [
+    { title: 'File Sharing', desc: 'Share documents and media', path: '/features/file-sharing' },
+    { title: 'Media Preview', desc: 'Preview images and videos', path: '/features/media-preview' },
+    { title: 'Drag & Drop', desc: 'Easy file uploads', path: '/features/drag-drop' },
   ],
-  projectManagement: [
-    { title: 'Templates', desc: 'Start any task, fast', path: '/features/templates' },
-    { title: 'Canvas', desc: 'Create rich, flexible docs', path: '/features/canvas' },
-    { title: 'Lists', desc: 'Organise, track and manage projects', path: '/features/lists' },
-    { title: 'File sharing', desc: 'Bring files into the flow of work', path: '/features/file-sharing' },
+  management: [
+    { title: 'User Management', desc: 'Create and delete users', path: '/features/user-management' },
+    { title: 'Role-Based Access', desc: 'Granular team permissions', path: '/features/rbac' },
+    { title: 'Workspace Control', desc: 'Manage your entire team', path: '/features/workspace' },
+    { title: 'Admin Dashboard', desc: 'Centralized admin controls', path: '/features/admin' },
   ],
-  platform: [
-    { title: 'Agentic platform', desc: 'Customise, extend and unify your tech stack in Workholo', path: '/features/platform' },
-    { title: 'Apps & integrations', desc: 'Connect your tools with Workholo', path: '/features/integrations' },
-    { title: 'Workflow Builder', desc: 'Automate everyday tasks', path: '/features/workflow-builder' },
+  productivity: [
+    { title: 'Structured Comm', desc: 'Organized team collaboration', path: '/features/structured-comm' },
+    { title: 'Centralized Workspace', desc: 'Everything in one place', path: '/features/centralized' },
+    { title: 'Mobile Responsive', desc: 'Work from anywhere', path: '/features/mobile' },
   ],
   intelligence: [
-    { title: 'AI in Workholo', desc: 'Save time and work smarter with powerfully simple AI', path: '/features/ai', icon: '✨' },
-    { title: 'Workholobot', desc: 'Power productivity with your personal AI agent', path: '/features/bot', icon: '🤖' },
-    { title: 'Agentforce', desc: 'Empower your whole team with AI-powered agents in Workholo', path: '/features/agentforce' },
-    { title: 'Enterprise search', desc: 'Find anything, all from a single search bar', path: '/features/search' },
+    { title: 'AI Summaries', desc: 'Catch up on missed messages', path: '/features/ai-summaries', icon: '✨' },
+    { title: 'Smart Replies', desc: 'AI-powered response suggestions', path: '/features/smart-replies', icon: '🤖' },
+    { title: 'AI Search', desc: 'Find exactly what you need', path: '/features/ai-search' },
+    { title: 'Automated Notes', desc: 'AI-generated meeting notes', path: '/features/automated-notes' },
   ],
-  adminSecurity: [
-    { title: 'Security', desc: 'Protect data, ensure compliance', path: '/features/security' },
-    { title: 'Enterprise Key Management', desc: 'Monitor and revoke access', path: '/features/ekm' },
-    { title: 'Workholo Atlas', desc: 'Discover rich profiles and org charts', path: '/features/atlas' },
+  security: [
+    { title: 'Single Sign-On (SSO)', desc: 'Secure enterprise login', path: '/features/sso' },
+    { title: 'Two-Factor Auth', desc: 'Extra layer of security', path: '/features/2fa' },
+    { title: 'Data Encryption', desc: '256-bit secure encryption', path: '/features/encryption' },
+    { title: 'Audit Logs', desc: 'Track workspace activity', path: '/features/audit-logs' },
   ]
 };
 
@@ -147,15 +150,15 @@ export default function Navbar() {
                   Features <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'features' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'features' && (
-                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center max-h-[calc(100vh-6rem)] overflow-y-auto">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-3 gap-8">
                           <div className="space-y-8">
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Collaboration</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Core Communication</h4>
                               <ul className="space-y-4">
-                                {featuresData.collaboration.map(item => (
+                                {featuresData.communication.map(item => (
                                   <li key={item.title}>
                                     <Link to={item.path} className="block group">
                                       <div className="font-medium text-gray-900 group-hover:text-primary">{item.title}</div>
@@ -166,9 +169,9 @@ export default function Navbar() {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">CRM</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Media & Attachments</h4>
                               <ul className="space-y-4">
-                                {featuresData.crm.map(item => (
+                                {featuresData.media.map(item => (
                                   <li key={item.title}>
                                     <Link to={item.path} className="block group">
                                       <div className="font-medium text-gray-900 group-hover:text-primary">{item.title}</div>
@@ -182,9 +185,9 @@ export default function Navbar() {
                           
                           <div className="space-y-8">
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Project Management</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Team & Admin Management</h4>
                               <ul className="space-y-4">
-                                {featuresData.projectManagement.map(item => (
+                                {featuresData.management.map(item => (
                                   <li key={item.title}>
                                     <Link to={item.path} className="block group">
                                       <div className="font-medium text-gray-900 group-hover:text-primary">{item.title}</div>
@@ -195,9 +198,9 @@ export default function Navbar() {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Platform</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Productivity</h4>
                               <ul className="space-y-4">
-                                {featuresData.platform.map(item => (
+                                {featuresData.productivity.map(item => (
                                   <li key={item.title}>
                                     <Link to={item.path} className="block group">
                                       <div className="font-medium text-gray-900 group-hover:text-primary">{item.title}</div>
@@ -211,7 +214,7 @@ export default function Navbar() {
 
                           <div className="space-y-8">
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Intelligence</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Smart & AI Features</h4>
                               <ul className="space-y-4">
                                 {featuresData.intelligence.map(item => (
                                   <li key={item.title}>
@@ -227,9 +230,9 @@ export default function Navbar() {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Admin and Security</h4>
+                              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Enterprise Security</h4>
                               <ul className="space-y-4">
-                                {featuresData.adminSecurity.map(item => (
+                                {featuresData.security.map(item => (
                                   <li key={item.title}>
                                     <Link to={item.path} className="block group">
                                       <div className="font-medium text-gray-900 group-hover:text-primary">{item.title}</div>
@@ -278,7 +281,7 @@ export default function Navbar() {
                   Solutions <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'solutions' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'solutions' && (
-                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center max-h-[calc(100vh-6rem)] overflow-y-auto">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-2 gap-8">
@@ -342,7 +345,7 @@ export default function Navbar() {
                   BPO Services <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'bpo' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'bpo' && (
-                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center max-h-[calc(100vh-6rem)] overflow-y-auto">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-4 gap-8">
@@ -417,7 +420,7 @@ export default function Navbar() {
                   Resources <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'resources' && (
-                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center max-h-[calc(100vh-6rem)] overflow-y-auto">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-3 gap-8">
@@ -502,11 +505,11 @@ export default function Navbar() {
               </button>
               {activeDropdown === 'features-mobile' && (
                 <div className="mt-4 pl-4 space-y-4">
-                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider">Collaboration</div>
-                  {featuresData.collaboration.map(item => (
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider">Core Communication</div>
+                  {featuresData.communication.map(item => (
                     <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
                   ))}
-                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider mt-6">Intelligence</div>
+                  <div className="font-bold text-sm text-gray-500 uppercase tracking-wider mt-6">Smart & AI Features</div>
                   {featuresData.intelligence.map(item => (
                     <Link key={item.title} to={item.path} className="block text-gray-700" onClick={() => setMobileMenuOpen(false)}>{item.title}</Link>
                   ))}
