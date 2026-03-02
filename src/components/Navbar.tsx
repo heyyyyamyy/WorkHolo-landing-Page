@@ -124,9 +124,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <div className="sticky top-4 z-50 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto">
+      <nav className="bg-white rounded-full shadow-lg border border-gray-200 relative">
+        <div className="flex justify-between items-center h-16 px-4 lg:px-8">
           {/* Logo and primary nav */}
           <div className="flex items-center gap-8 h-full">
             <Link to="/" className="flex items-center gap-2">
@@ -143,11 +143,11 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('features')}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`text-sm font-medium flex items-center gap-1 h-full ${activeDropdown === 'features' ? 'text-primary' : 'hover:text-primary'}`}>
+                <button className={`text-sm font-bold flex items-center gap-1 h-full ${activeDropdown === 'features' ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}>
                   Features <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'features' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'features' && (
-                  <div className="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 flex justify-center">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-3 gap-8">
@@ -274,11 +274,11 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('solutions')}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`text-sm font-medium flex items-center gap-1 h-full ${activeDropdown === 'solutions' ? 'text-primary' : 'hover:text-primary'}`}>
+                <button className={`text-sm font-bold flex items-center gap-1 h-full ${activeDropdown === 'solutions' ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}>
                   Solutions <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'solutions' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'solutions' && (
-                  <div className="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 flex justify-center">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-2 gap-8">
@@ -338,11 +338,11 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('bpo')}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`text-sm font-medium flex items-center gap-1 h-full ${activeDropdown === 'bpo' ? 'text-primary' : 'hover:text-primary'}`}>
+                <button className={`text-sm font-bold flex items-center gap-1 h-full ${activeDropdown === 'bpo' ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}>
                   BPO Services <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'bpo' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'bpo' && (
-                  <div className="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 flex justify-center">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-4 gap-8">
@@ -403,7 +403,7 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link to="/enterprise" className="text-sm font-medium hover:text-primary h-full flex items-center">
+              <Link to="/enterprise" className="text-sm font-bold text-gray-800 hover:text-primary h-full flex items-center">
                 Enterprise
               </Link>
 
@@ -413,11 +413,11 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('resources')}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`text-sm font-medium flex items-center gap-1 h-full ${activeDropdown === 'resources' ? 'text-primary' : 'hover:text-primary'}`}>
+                <button className={`text-sm font-bold flex items-center gap-1 h-full ${activeDropdown === 'resources' ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}>
                   Resources <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'resources' && (
-                  <div className="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 flex justify-center">
+                  <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 flex justify-center overflow-hidden">
                     <div className="max-w-7xl w-full flex flex-col mx-auto">
                       <div className="flex">
                         <div className="flex-1 p-8 grid grid-cols-3 gap-8">
@@ -455,39 +455,39 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link to="/pricing" className="text-sm font-medium hover:text-primary h-full flex items-center">
+              <Link to="/pricing" className="text-sm font-bold text-gray-800 hover:text-primary h-full flex items-center">
                 Pricing
               </Link>
             </div>
           </div>
 
           {/* Secondary nav (Desktop) */}
-          <div className="hidden lg:flex items-center gap-6">
-            <button className="p-2 hover:bg-gray-50 rounded-full transition-colors">
+          <div className="hidden lg:flex items-center gap-5">
+            <button className="p-2 text-gray-800 hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
-            <Link to="/signin" className="text-sm font-medium hover:text-primary">
+            <Link to="/signin" className="text-sm font-bold text-gray-800 hover:text-primary">
               Sign in
             </Link>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ml-2">
               <Link 
                 to="/demo" 
-                className="text-sm font-medium text-primary border border-primary px-4 py-2 rounded-md hover:bg-primary-bg transition-colors uppercase tracking-wide"
+                className="text-xs font-bold text-primary border border-primary px-5 py-2.5 rounded hover:bg-primary-bg transition-colors uppercase tracking-wider"
               >
-                Request a demo
+                REQUEST A DEMO
               </Link>
               <Link 
                 to="/signup" 
-                className="text-sm font-medium text-white bg-primary px-4 py-2 rounded-md hover:bg-primary-dark transition-colors uppercase tracking-wide"
+                className="text-xs font-bold text-white bg-primary px-5 py-2.5 rounded hover:bg-primary-dark transition-colors uppercase tracking-wider"
               >
-                Get started
+                GET STARTED
               </Link>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-4">
-            <button className="p-2 hover:bg-gray-50 rounded-full transition-colors">
+            <button className="p-2 text-gray-800 hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-gray-900">
@@ -495,11 +495,11 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="lg:hidden absolute top-[calc(100%+0.5rem)] left-0 w-full bg-white shadow-2xl rounded-2xl border border-gray-100 max-h-[calc(100vh-6rem)] overflow-y-auto">
           <div className="px-4 py-6 space-y-6">
             {/* Features Mobile */}
             <div>
@@ -608,6 +608,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+    </div>
   );
 }
