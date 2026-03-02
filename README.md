@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Workholo UI Clone
 
-# Run and deploy your AI Studio app
+A UI clone of a modern team collaboration platform, featuring a custom purple and white theme. Built with React, Vite, Tailwind CSS, and React Router.
 
-This contains everything you need to run your app locally.
+## Deployment
 
-View your app in AI Studio: https://ai.studio/apps/9c4941c0-edca-4221-8216-6166df3e206e
+### One-Click Deploy to Vercel
 
-## Run Locally
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fworkholo-clone&env=VITE_APP_URL)
 
-**Prerequisites:**  Node.js
+*Note: Replace `your-username/workholo-clone` in the URL above with your actual GitHub repository path after pushing the code.*
 
+## Development
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
