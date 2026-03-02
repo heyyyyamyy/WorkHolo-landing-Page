@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import BPOServicePage from './pages/BPOServicePage';
 
 // Placeholder components for other pages
 const PlaceholderPage = ({ title }: { title?: string }) => {
@@ -36,6 +37,8 @@ export default function App() {
             <Route path="/signin" element={<PlaceholderPage title="Sign In" />} />
             <Route path="/demo" element={<PlaceholderPage title="Request a Demo" />} />
             <Route path="/signup" element={<PlaceholderPage title="Get Started" />} />
+            <Route path="/bpo/industries/:industryId" element={<BPOServicePage />} />
+            <Route path="/bpo/:serviceId" element={<BPOServicePage />} />
             <Route path="/:category/:page" element={<PlaceholderPage />} />
           </Routes>
         </main>
