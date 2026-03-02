@@ -463,12 +463,6 @@ export default function Navbar() {
 
           {/* Secondary nav (Desktop) */}
           <div className="hidden lg:flex items-center gap-5">
-            <button className="p-2 text-gray-800 hover:text-primary transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <Link to="/signin" className="text-sm font-bold text-gray-800 hover:text-primary">
-              Sign in
-            </Link>
             <div className="flex items-center gap-3 ml-2">
               <Link 
                 to="/demo" 
@@ -487,9 +481,6 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-4">
-            <button className="p-2 text-gray-800 hover:text-primary transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-gray-900">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -602,7 +593,6 @@ export default function Navbar() {
             <Link to="/pricing" className="block text-lg font-bold" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
 
             <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">
-              <Link to="/signin" className="text-center font-bold py-3 border border-gray-300 rounded-md" onClick={() => setMobileMenuOpen(false)}>Sign In</Link>
               <Link to="/signup" className="text-center font-bold py-3 bg-primary text-white rounded-md" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
             </div>
           </div>
